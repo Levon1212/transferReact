@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("../../assets/fonts/Roboto-Light.ttf");
+}
+h1 {
+  font-family: Roboto-Light, sans-serif;
+  margin-top: 20px;
+}
+
+h2 {
+  font-family: Roboto-Light, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8a8a8a;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  margin-bottom: 0;
+  color: #8a8a8a;
+  font-family: Roboto, sans-serif;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+  outline: none;
+  border: 1px solid rgba(243, 203, 253, 0.55);
+  color: #8a8a8a;
+  font-family: Roboto, sans-serif;
+}
+
+section {
+  display: flex;
+  width: calc(100% - 10px);
+  max-width: 1440px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 10px auto;
+}
+
+.form input {
+  width: 100%;
+  height: 35px;
+  text-indent: 15px;
+  margin-bottom: 15px;
+}
+
+.saveButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: palevioletred;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  height: 35px;
+}
+
+header {
+  display: flex;
+  height: 70px;
+  background-color: rgba(211, 211, 211, 0.3490196078);
+  overflow: hidden;
+  align-items: center;
+  box-shadow: 1px 1px 5px 1px rgba(163, 137, 194, 0.3098039216);
+}
+header .logo {
+  height: 100px;
+  position: relative;
+  top: 3px;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  color: #000000;
+  padding: 7px 10px;
+}
+
+.orders-table {
+  width: 100%;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+.orders-table th {
+  padding: 10px;
+  font-family: Roboto, sans-serif;
+  border: 1px solid lightgray;
+  font-size: 12px;
+}
+.orders-table td {
+  padding: 10px;
+  font-family: Roboto, sans-serif;
+  border: 1px solid lightgray;
+  color: #8a8989;
+  text-align: center;
+}
+
+.createCompany {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 350px;
+  margin: 15px auto;
+}
+
+.create-appointments {
+  display: flex;
+  width: 800px;
+  margin: 10px auto;
+}
+.create-appointments .pageTitle {
+  margin-top: 20px;
+}
+.create-appointments .MuiFormGroup-root {
+  flex-direction: row;
+}
+
+.radio-label-wrapper {
+  display: flex;
+  align-items: center;
+}
+.radio-label-wrapper svg {
+  width: 25px;
+}
+.radio-label-wrapper span {
+  font-size: 14px;
+  margin-left: 7px;
+}
+
+/*# sourceMappingURL=style.css.map */

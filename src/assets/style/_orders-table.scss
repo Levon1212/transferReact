@@ -1,0 +1,19 @@
+.orders-table{
+  width: 100%;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  border-collapse: collapse;
+  th{
+    padding: 10px;
+    font-family: Roboto,sans-serif;
+    border: 1px solid lightgray;
+    font-size: 12px;
+  }
+  td{
+    padding: 10px;
+    font-family: Roboto,sans-serif;
+    border: 1px solid lightgray;
+    color: #8a8989;
+    text-align: center;
+  }
+}

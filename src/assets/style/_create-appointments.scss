@@ -1,0 +1,22 @@
+.create-appointments{
+  display: flex;
+  width: 800px;
+  margin: 10px auto;
+  .pageTitle{
+    margin-top: 20px;
+  }
+  .MuiFormGroup-root{
+    flex-direction: row;
+  }
+}
+.radio-label-wrapper{
+  display: flex;
+  align-items: center;
+  svg{
+    width: 25px;
+  }
+  span{
+    font-size: 14px;
+    margin-left: 7px;
+  }
+}

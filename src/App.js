@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import Header from "./components/header";
+import TransferList from "./pages/transfer-list";
+import CreateCompany from "./pages/create-company";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from "react-router-dom";
+import CompanyList from "./pages/company-list";
+import CreateAppointments from "./pages/create-appointments";
+const App = () => {
+    return (
+        <div>
+            <Router>
+                <Header/>
+                <Routes>
+                    <Route exact path={'/'} element={<TransferList/>}/>
+                    <Route exact path={'/create-company'} element={<CreateCompany/>}/>
+                    <Route exact path={'/list-company'} element={<CompanyList/>}/>
+                    <Route exact path={'/create-appointments'} element={<CreateAppointments/>}/>
+                </Routes>
+            </Router>
+        </div>
+    );
+};
 
 export default App;

@@ -1,0 +1,20 @@
+header{
+  display: flex;
+  height: 70px;
+  background-color: #d3d3d359;
+  overflow: hidden;
+  align-items: center;
+  box-shadow: 1px 1px 5px 1px #a389c24f;
+  .logo{
+    height: 100px;
+    position: relative;
+    top: 3px;
+  }
+  nav{
+    display: flex;
+    a{
+      color: #000000;
+      padding: 7px 10px;
+    }
+  }
+}
