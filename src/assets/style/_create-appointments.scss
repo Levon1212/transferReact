@@ -1,12 +1,22 @@
 .create-appointments{
   display: flex;
-  width: 800px;
+  flex-direction: column;
+  width: 1000px;
   margin: 10px auto;
   .pageTitle{
     margin-top: 20px;
   }
+  .formRow{
+    display: flex;
+    width: 100%;
+  }
   .MuiFormGroup-root{
     flex-direction: row;
+  }
+  .price{
+    color: #24be09;
+    font-size: 25px;
+
   }
 }
 .radio-label-wrapper{
