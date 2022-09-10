@@ -13,9 +13,13 @@ const CreateCompany = () => {
         fd.append('address',address)
         fd.append('login',login)
         fd.append('password',password)
+        fd.append('balance','0')
         axios.post(`${process.env.REACT_APP_BASE_API}create-company`,fd)
             .then(res => {
-                console.log(res.data)
+               if(res.data.message === 'created'){
+                   alert('Company created !')
+                   window.location.href = '/list-company'
+               }
             })
     }
     return (

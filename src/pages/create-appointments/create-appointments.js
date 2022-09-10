@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -25,7 +25,16 @@ const CreateAppointments = () => {
     const [guide, setGuide] = useState(false);
     const [carseat, setCarseat] = useState(false);
     const [category, setCategory] = useState(1);
-    const [price,setPrice] = useState(10000);
+    const [price,setPrice] = useState(6000);
+    useEffect(()=>{
+        if(category === 1){
+            setPrice(6000)
+        }else if(category === 2){
+            setPrice(10000)
+        }else {
+            setPrice(20000)
+        }
+    },[category])
     const handleCategory = (event) => {
         setCategory(event.target.value);
     };
@@ -34,7 +43,7 @@ const CreateAppointments = () => {
     }
     const handleSubmit = () => {
         const fd = new FormData;
-        fd.append('date',startDate.toString());
+        fd.append('date',startDate.getTime().toString());
         fd.append('service',type);
         fd.append('notes',notes);
         fd.append('guest_name',guestName);
@@ -42,8 +51,8 @@ const CreateAppointments = () => {
         fd.append('guide',guide ? '1' : '0');
         fd.append('carseat',carseat ? '1' : '0');
         fd.append('order_amount',price.toString());
-        fd.append('status','Added');
-        fd.append('company_id','admin');
+        fd.append('status','accepted');
+        fd.append('company_id',localStorage.getItem('user'));
         fd.append('flight_number',flightNumber);
         fd.append('adults',adults);
         fd.append('children',children);
@@ -91,9 +100,11 @@ const CreateAppointments = () => {
             <div className="formRow mt-2">
                 <div className='d-flex w-50 pe-3'>
                     <DatePicker
-                        showTimeSelect
+                        dateFormat="y-MM-dd HH:mm"
+                        showTimeInput
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}/>
+
                 </div>
                 <div className='d-flex w-50 ps-3'>
                     <input type="text"
@@ -134,9 +145,9 @@ const CreateAppointments = () => {
                                 label="Age"
                                 onChange={handleCategory}
                             >
-                                <MenuItem value={1}>1 - 7 Seats</MenuItem>
-                                <MenuItem value={2}>7 - 14 Seats</MenuItem>
-                                <MenuItem value={3}>14 - 21 Seats</MenuItem>
+                                <MenuItem value={1}>1 - 3 Seats</MenuItem>
+                                <MenuItem value={2}>4 - 6 Seats</MenuItem>
+                                <MenuItem value={3}>7 - 16 Seats</MenuItem>
                             </Select>
                         </FormControl>
                     </Box>

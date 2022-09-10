@@ -1,8 +1,21 @@
+.transfer-list{
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  flex-direction: column;
+  margin: auto;
+}
 .orders-table{
   width: 100%;
   border: 1px solid lightgray;
   margin-top: 20px;
   border-collapse: collapse;
+  .serviceIconsWrapper{
+    svg{
+      width: 28px;
+      fill: darkviolet;
+    }
+  }
   th{
     padding: 10px;
     font-family: Roboto,sans-serif;
@@ -16,4 +29,16 @@
     color: #8a8989;
     text-align: center;
   }
+  .update-input{
+    width: 200px;
+    margin-right: 10px;
+    text-indent: 20px;
+  }
+  .saveButton{
+    width: fit-content;
+    padding: 0 10px;
+  }
+}
+.white-space{
+  white-space: nowrap;
 }

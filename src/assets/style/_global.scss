@@ -80,4 +80,60 @@ section{
   outline: none;
   overflow: hidden;
   height: 35px;
+  cursor: pointer;
+}
+.accepted{
+  display: flex;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: darkorange;
+  color: white;
+  font-size: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.canceled{
+  display: flex;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #e00b0b;
+  color: white;
+  font-size: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.completed{
+  display: flex;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #3ba3ff;
+  color: white;
+  font-size: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.cancelButton{
+  display: flex;
+  width: fit-content;
+  padding: 5px 12px;
+  background-color: firebrick;
+  color: white;
+  font-size: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.react-datepicker-time__input{
+  text-indent: unset !important;
+  height: unset !important;
+}
+.exportButton{
+  display: flex;
+  background-color: #24be09;
+  padding: 10px 20px;
+  border-radius: 7px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 10px;
 }

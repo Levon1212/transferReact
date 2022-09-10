@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import CompanyListItem from "./compani-list-item";
 
 const CompanyList = () => {
     const [companies,setCompanies] = useState([])
@@ -7,8 +8,12 @@ const CompanyList = () => {
         axios.get(`${process.env.REACT_APP_BASE_API}get-companies`)
             .then(res => setCompanies(res.data))
     },[])
+    const updateBalance = () => {
+
+    }
     return (
-        <section>
+        <section className='flex-column m-auto'>
+            <h1>Companies</h1>
             <table className={'orders-table'}>
                 <tr>
                     <th>ID</th>
@@ -22,15 +27,7 @@ const CompanyList = () => {
                 {
                     companies.map(e => {
                         return (
-                            <tr>
-                                <td>{e.id}</td>
-                                <td>{e.name}</td>
-                                <td>{e.address}</td>
-                                <td>{e.balance}</td>
-                                <td>{e.login}</td>
-                                <td>{e.password}</td>
-                                <td></td>
-                            </tr>
+                            <CompanyListItem data={e}/>
                         )
                     })
                 }
