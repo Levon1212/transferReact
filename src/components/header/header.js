@@ -10,7 +10,6 @@ const Header = () => {
         axios.post(`${process.env.REACT_APP_BASE_API}get-user`,fd)
             .then((res)=>{
                 setUser(res.data)
-                console.log(res.data);
             })
     },[])
     const logout = () => {

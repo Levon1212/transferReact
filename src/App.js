@@ -20,12 +20,10 @@ const App = () => {
         if(!localStorage.getItem('user') && window.location.pathname !== '/login'){
             window.location.href = '/login'
         }
-        console.log(localStorage.getItem('user'))
     }
 
     useEffect(()=>{
         handleAuth()
-        console.log(localStorage.getItem('user'));
     })
     return (
         <div>

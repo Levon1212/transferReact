@@ -12,7 +12,7 @@ import * as FileSaver from "file-saver";
 const Search = () => {
     let [startDate,setStartDate] = useState(new Date());
     let [endDate,setEndDate] = useState(new Date());
-    const [category, setCategory] = useState('accepted');
+    const [category, setCategory] = useState('all');
     const handleCategory = (event) => {
         setCategory(event.target.value);
     };
@@ -21,13 +21,13 @@ const Search = () => {
         axios.get(`${process.env.REACT_APP_BASE_API}get-appointment-all?com-id=${localStorage.getItem('user')}`)
             .then(res=> {
                 setOrders(res.data)
-                console.log('wwww',res.data);
             })
     },[])
     const filterData = ()=>{
+        console.log(startDate);
         const fd = new FormData
-        fd.append('start_date',startDate)
-        fd.append('end_date',endDate)
+        fd.append('start_date',new Date(startDate).getTime().toString())
+        fd.append('end_date',new Date(endDate).getTime().toString())
         fd.append('status',category)
         fd.append('com_id',localStorage.getItem('user'))
         axios.post(`${process.env.REACT_APP_BASE_API}search-filter`,fd)
@@ -71,6 +71,7 @@ const Search = () => {
                             value={category}
                             label="Age"
                             onChange={handleCategory}>
+                            <MenuItem value='all'>All</MenuItem>
                             <MenuItem value='accepted'>Accepted</MenuItem>
                             <MenuItem value='completed'>Completed</MenuItem>
                             <MenuItem value='canceled'>Canceled</MenuItem>

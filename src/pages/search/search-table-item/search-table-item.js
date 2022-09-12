@@ -80,7 +80,7 @@ const SearchTableItem = (props) => {
                 : ''}
             <td>
                 {
-                    format(new Date(e.date), 'yyyy/MM/dd kk:mm:ss')
+                    format(new Date(e.date), 'yyyy/MM/dd kk:mm')
                 }
             </td>
             <td>

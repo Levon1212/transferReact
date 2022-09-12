@@ -62,7 +62,6 @@ const CreateAppointments = () => {
             .then(res=>{
                 if(res.data.message === 'created'){
                     window.location.href = '/';
-                    console.log(res.status)
                 }
             })
     }
