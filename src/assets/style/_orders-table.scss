@@ -42,3 +42,10 @@
 .white-space{
   white-space: nowrap;
 }
+.filter-radios-wrapper{
+  .MuiFormGroup-root{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+  }
+}

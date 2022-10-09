@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
-import {format} from "date-fns";
+
 import SearchTableItem from "../search-table-item";
+
 
 const SearchTable = (props) => {
     const [orders,setOrders] = useState([]);
+    const [type,setType] = useState('up')
     useEffect(()=>{
         setOrders(props.data)
     },[props.data])
-
+    const handleChange = (event) => {
+        setType(event.target.value);
+    }
     return (
         <section className='m-auto'>
             <table className='orders-table'>
@@ -28,13 +31,13 @@ const SearchTable = (props) => {
                     <th>Order Amount</th>
                     <th>Status</th>
                     {localStorage.getItem('user') === 'admin' ? <th>Change status</th> : ''}
-                    <th>Cancel</th>
+                    {localStorage.getItem('user') !== 'admin' ? <th>Cancel</th> : ''}
                     {localStorage.getItem('user') === 'admin' ? <th>Update note</th> : ''}
                 </tr>
                 </thead>
                 <tbody>
                 {orders.map((e)=>{return(
-                   <SearchTableItem data={e}/>
+                   <SearchTableItem key={e.id} data={e}/>
                 )})}
                 </tbody>
             </table>
