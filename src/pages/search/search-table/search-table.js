@@ -40,6 +40,11 @@ const SearchTable = (props) => {
                    <SearchTableItem key={e.id} data={e}/>
                 )})}
                 </tbody>
+                <tr>
+                    <td style={{backgroundColor:'gray',color:'white'}}>
+                        {orders.length}
+                    </td>
+                </tr>
             </table>
         </section>
     );
