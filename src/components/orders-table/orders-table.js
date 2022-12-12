@@ -3,13 +3,12 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import OrdersTableItem from "./orders-table-item";
 
-const OrdersTable = () => {
+const OrdersTable = ({list}) => {
     const [orders,setOrders] = useState([]);
 
     useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_BASE_API}get-appointment?com-id=${localStorage.getItem('user')}`)
-            .then(res=>setOrders(res.data))
-    },[])
+      setOrders(list)
+    },[list])
 
     return (
         <section className='m-auto'>
