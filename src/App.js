@@ -11,6 +11,7 @@ import CompanyList from "./pages/company-list";
 import CreateAppointments from "./pages/create-appointments";
 import Login from "./pages/login";
 import Search from "./pages/search";
+import Test from "./pages/test/test";
 export const UserContext = createContext(null);
 export const UserAuthContext = createContext(null);
 
@@ -33,6 +34,7 @@ const App = () => {
                 {window.location.pathname !== '/login' ? <Header/> : ''}
                 <Routes>
                     <Route exact path={'/'} element={<TransferList/>}/>
+                    <Route exact path={'/test'} element={<Test/>}/>
                     <Route exact path={'/search'} element={<Search/>}/>
                     <Route exact path={'/login'} element={<Login/>}/>
                     <Route exact path={'/create-company'} element={<CreateCompany/>}/>

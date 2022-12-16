@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -11,6 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 const CreateAppointments = () => {
     const [type, setType] = useState('up');
@@ -25,7 +26,9 @@ const CreateAppointments = () => {
     const [guide, setGuide] = useState(false);
     const [carseat, setCarseat] = useState(false);
     const [category, setCategory] = useState(1);
+    const [company,setCompany] = useState('')
     const [price,setPrice] = useState(6000);
+    const form = useRef();
     useEffect(()=>{
         if(category === 1){
             setPrice(6000)
@@ -35,6 +38,12 @@ const CreateAppointments = () => {
             setPrice(20000)
         }
     },[category])
+    useEffect(()=>{
+        const fd = new FormData
+        fd.append('user_id',localStorage.getItem('user'))
+        axios.post(`${process.env.REACT_APP_BASE_API}get-user`,fd)
+            .then(res => setCompany(res.data.address))
+    },[])
     const handleCategory = (event) => {
         setCategory(event.target.value);
     };
@@ -61,10 +70,23 @@ const CreateAppointments = () => {
         axios.post(`${process.env.REACT_APP_BASE_API}add-appointment`,fd)
             .then(res=>{
                 if(res.data.message === 'created'){
-                    window.location.href = '/';
+                    emailjs.sendForm('service_sdi7fco', 'template_8oukz0e', form.current, 'H29MVK8BlmwWUiQI3')
+                        .then((result) => {
+                            console.log(result.text);
+                        }, (error) => {
+                            console.log(error.text);
+                        });
+                    // window.location.href = '/';
                 }
             })
     }
+
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+
+    };
     return (
         <section className={'create-appointments form'}>
             <h2 className='pageTitle'>Create an appointments</h2>
@@ -180,6 +202,17 @@ const CreateAppointments = () => {
             </div>
             <div className="formRow mt-2">
                 <button className="saveButton" onClick={handleSubmit}>Send</button>
+            </div>
+            <div style={{display:'none'}}>
+                <form ref={form} onSubmit={sendEmail}>
+                    <label>Name</label>
+                    <input type="text" name="user_name" value={' ..'}/>
+                    <label>Email</label>
+                    <input type="email" name="user_email" value={company}/>
+                    <label>Message</label>
+                    <textarea name="message" value='Created new appointment'/>
+                    <input type="submit" value="Send" />
+                </form>
             </div>
         </section>
     );
