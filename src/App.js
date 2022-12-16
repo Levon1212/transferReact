@@ -12,6 +12,7 @@ import CreateAppointments from "./pages/create-appointments";
 import Login from "./pages/login";
 import Search from "./pages/search";
 import Test from "./pages/test/test";
+import EditAppointments from "./pages/edit-appointments";
 export const UserContext = createContext(null);
 export const UserAuthContext = createContext(null);
 
@@ -40,6 +41,7 @@ const App = () => {
                     <Route exact path={'/create-company'} element={<CreateCompany/>}/>
                     <Route exact path={'/list-company'} element={<CompanyList/>}/>
                     <Route exact path={'/create-appointments'} element={<CreateAppointments/>}/>
+                    <Route exact path={'/edit-appointments/:id'} element={<EditAppointments/>}/>
                 </Routes>
             </Router>
             </UserAuthContext.Provider>

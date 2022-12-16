@@ -80,8 +80,6 @@ const CreateAppointments = () => {
                 }
             })
     }
-
-
     const sendEmail = (e) => {
         e.preventDefault();
 
