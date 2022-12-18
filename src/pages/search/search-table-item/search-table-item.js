@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {format} from "date-fns";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const SearchTableItem = (props) => {
     const e = props.data;
@@ -126,7 +127,9 @@ const SearchTableItem = (props) => {
                     <button className='saveButton ms-2' onClick={handleNote}>Save</button>
                 </div>
             </td> : ""}
-
+            <td>
+                <Link to={`/edit-appointments/${e.id}`}>Edit</Link>
+            </td>
         </tr>
     );
 };

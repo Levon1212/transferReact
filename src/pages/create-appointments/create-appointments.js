@@ -72,11 +72,12 @@ const CreateAppointments = () => {
                 if(res.data.message === 'created'){
                     emailjs.sendForm('service_sdi7fco', 'template_8oukz0e', form.current, 'H29MVK8BlmwWUiQI3')
                         .then((result) => {
-                            console.log(result.text);
+                            alert('Appointment created successfully')
+                            window.location.href = '/';
+                            // console.log(result.text);
                         }, (error) => {
-                            console.log(error.text);
+                            // console.log(error.text);
                         });
-                    // window.location.href = '/';
                 }
             })
     }

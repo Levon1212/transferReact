@@ -51,6 +51,18 @@ const EditAppointments = () => {
         axios.post(`${process.env.REACT_APP_BASE_API}get-one-appointment`,fd)
             .then(res=>{
                 console.log(res.data);
+                let transfer = res.data
+                setFlightNumber(transfer.flight_number)
+                setAdults(transfer.adults)
+                setGuestName(transfer.guest_name)
+                setGuestPhone(transfer.contact_number)
+                setNotes(transfer.notes)
+                setChildren(transfer.children)
+                setCategory(transfer.car_category)
+                setGuide(transfer.guide == '1' ? true : false)
+                setCarseat(transfer.carseat == '1' ? true : false)
+                setType(transfer.service)
+                setStartDate(new Date(transfer.date))
             })
     },[])
     const handleCategory = (event) => {
@@ -62,6 +74,7 @@ const EditAppointments = () => {
     const handleSubmit = () => {
         const fd = new FormData;
         fd.append('date',startDate.getTime().toString());
+        fd.append('id',params.id);
         fd.append('service',type);
         fd.append('notes',notes);
         fd.append('guest_name',guestName);
@@ -76,23 +89,15 @@ const EditAppointments = () => {
         fd.append('children',children);
         fd.append('guest_email',email);
         fd.append('contact_number',guestPhone);
-        axios.post(`${process.env.REACT_APP_BASE_API}add-appointment`,fd)
+        axios.post(`${process.env.REACT_APP_BASE_API}update-transfer`,fd)
             .then(res=>{
-                if(res.data.message === 'created'){
-                    emailjs.sendForm('service_sdi7fco', 'template_8oukz0e', form.current, 'H29MVK8BlmwWUiQI3')
-                        .then((result) => {
-                            console.log(result.text);
-                        }, (error) => {
-                            console.log(error.text);
-                        });
-                    // window.location.href = '/';
+                if(res.data.message === 'updated'){
+                    alert('Appointment successfully updated')
                 }
             })
     }
     const sendEmail = (e) => {
         e.preventDefault();
-
-
     };
     return (
         <section className={'create-appointments form'}>
