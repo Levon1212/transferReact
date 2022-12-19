@@ -13,6 +13,7 @@ import Login from "./pages/login";
 import Search from "./pages/search";
 import Test from "./pages/test/test";
 import EditAppointments from "./pages/edit-appointments";
+import Driver from "./pages/driver";
 export const UserContext = createContext(null);
 export const UserAuthContext = createContext(null);
 
@@ -42,6 +43,7 @@ const App = () => {
                     <Route exact path={'/list-company'} element={<CompanyList/>}/>
                     <Route exact path={'/create-appointments'} element={<CreateAppointments/>}/>
                     <Route exact path={'/edit-appointments/:id'} element={<EditAppointments/>}/>
+                    <Route exact path={'/driver'} element={<Driver/>}/>
                 </Routes>
             </Router>
             </UserAuthContext.Provider>

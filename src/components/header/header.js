@@ -23,6 +23,7 @@ const Header = () => {
                 <Link to="/search">Appointments</Link>
                 {localStorage.getItem('user') === 'admin' ? <Link to="/create-company">Create Company</Link> : ''}
                 {localStorage.getItem('user') === 'admin' ? <Link to="/list-company">Companies</Link> : ''}
+                {localStorage.getItem('user') === 'admin' ? <Link to="/driver">Drivers</Link> : ''}
                 {localStorage.getItem('user') !== 'admin' ? <Link to="/create-appointments">Create an Appointments</Link> : ''}
 
             </nav>
